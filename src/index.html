@@ -7,6 +7,33 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+  <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+  <!-- #enddocregion ie-polyfills -->
+
+  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+  <script src="node_modules/rxjs/bundles/Rx.js"></script>
+  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+  <!-- #enddocregion libraries -->
+
+  <!-- 2. Configure SystemJS -->
+  <!-- #docregion systemjs -->
+  <script>
+    System.config({
+      packages: {
+        app: {
+          format: 'register',
+          defaultExtension: 'js'
+        }
+      }
+    });
+    System.import('app/boot')
+      .then(null, console.error.bind(console));
+  </script>
+
+
 </head>
 <body>
   <app-root></app-root>
