@@ -1,4 +1,16 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>MakaluWeb</title><base href="/"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="favicon.ico"><script src="node_modules/es6-shim/es6-shim.min.js"></script><script src="node_modules/systemjs/dist/system-polyfills.js"></script><!-- #enddocregion ie-polyfills --><script src="node_modules/angular2/bundles/angular2-polyfills.js"></script><script src="node_modules/systemjs/dist/system.src.js"></script><script src="node_modules/rxjs/bundles/Rx.js"></script><script src="node_modules/angular2/bundles/angular2.dev.js"></script><!-- #enddocregion libraries --><!-- 2. Configure SystemJS --><!-- #docregion systemjs --><script>System.config({
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>MakaluWeb</title><base href="/"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="favicon.ico"><script src="node_modules/es6-shim/es6-shim.min.js"> <script>
+    (function () {
+      // Retrieve the URL the user was trying to access when receiving the 404.
+      var redirect = sessionStorage.redirect;
+      // Remove the URL from sessionStorage.
+      delete sessionStorage.redirect;
+      // Check if we actually need to redirect.
+      if (redirect && redirect != location.href) {
+        // We need to redirect to the URL the user was trying to access.
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script></script><script src="node_modules/systemjs/dist/system-polyfills.js"></script><!-- #enddocregion ie-polyfills --><script src="node_modules/angular2/bundles/angular2-polyfills.js"></script><script src="node_modules/systemjs/dist/system.src.js"></script><script src="node_modules/rxjs/bundles/Rx.js"></script><script src="node_modules/angular2/bundles/angular2.dev.js"></script><!-- #enddocregion libraries --><!-- 2. Configure SystemJS --><!-- #docregion systemjs --><script>System.config({
       packages: {
         app: {
           format: 'register',
